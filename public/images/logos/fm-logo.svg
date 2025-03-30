@@ -1,0 +1,6 @@
+<svg width="120" height="40" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="120" height="40" rx="4" fill="#111827" />
+  <path d="M20 10H35V14H24V18H34V22H24V30H20V10Z" fill="#06B6D4"/>
+  <path d="M40 10H55V14H44V18H54V22H44V26H55V30H40V10Z" fill="#06B6D4"/>
+  <text x="65" y="25" font-family="Arial" font-size="14" fill="white">AGENCY</text>
+</svg> 

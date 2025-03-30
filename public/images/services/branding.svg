@@ -1,0 +1,7 @@
+<svg width="600" height="400" viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="400" rx="8" fill="#111827"/>
+  <rect x="200" y="100" width="200" height="200" rx="8" stroke="#06B6D4" stroke-width="2"/>
+  <circle cx="300" cy="200" r="60" fill="#06B6D4" opacity="0.2"/>
+  <path d="M270 200L290 220L330 180" stroke="#06B6D4" stroke-width="4"/>
+  <text x="250" y="320" font-family="Arial" font-size="16" fill="white">BRAND IDENTITY</text>
+</svg> 

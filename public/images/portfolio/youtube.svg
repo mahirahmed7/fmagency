@@ -1,0 +1,6 @@
+<svg width="600" height="400" viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="400" rx="8" fill="#111827"/>
+  <rect x="150" y="100" width="300" height="200" rx="16" stroke="#06B6D4" stroke-width="2"/>
+  <path d="M260 160L350 200L260 240L260 160Z" fill="#06B6D4"/>
+  <text x="210" y="350" font-family="Arial" font-size="16" fill="white">YOUTUBE CREATOR</text>
+</svg> 
