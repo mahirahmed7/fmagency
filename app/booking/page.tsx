@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Script from 'next/script';
+import { FaCalendarAlt, FaClock, FaVideo } from 'react-icons/fa';
 
 export const metadata: Metadata = {
   title: 'Book a Call | FM Agency',
@@ -28,6 +29,25 @@ export default function BookingPage() {
               <p className="text-xl text-text-light max-w-3xl mx-auto mb-8">
                 Schedule a free 30-minute consultation with our team to discuss your project and how we can help you achieve your goals.
               </p>
+              
+              {/* Feature Cards */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
+                <div className="tech-card p-6 text-center">
+                  <FaCalendarAlt className="text-3xl text-cyan-400 mb-4 mx-auto" />
+                  <h3 className="text-xl font-semibold mb-2">Flexible Scheduling</h3>
+                  <p className="text-text-light">Choose a time that works best for you</p>
+                </div>
+                <div className="tech-card p-6 text-center">
+                  <FaClock className="text-3xl text-cyan-400 mb-4 mx-auto" />
+                  <h3 className="text-xl font-semibold mb-2">30-Minute Session</h3>
+                  <p className="text-text-light">Quick but comprehensive consultation</p>
+                </div>
+                <div className="tech-card p-6 text-center">
+                  <FaVideo className="text-3xl text-cyan-400 mb-4 mx-auto" />
+                  <h3 className="text-xl font-semibold mb-2">Video Call</h3>
+                  <p className="text-text-light">Meet face-to-face from anywhere</p>
+                </div>
+              </div>
             </div>
             
             <div className="max-w-4xl mx-auto">
