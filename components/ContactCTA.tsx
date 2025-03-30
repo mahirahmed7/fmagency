@@ -63,7 +63,7 @@ const ContactCTA = () => {
           
           <div className={`flex flex-col sm:flex-row justify-center gap-5 ${isVisible ? 'animate-slide-up' : 'opacity-0'}`} style={{ animationDelay: '0.3s' }}>
             <Link 
-              href="/contact" 
+              href="/booking" 
               className="btn bg-secondary text-white hover:bg-secondary/90 shadow-[0_0_15px_rgba(6,182,212,0.5)] transform hover:scale-105 transition-all"
             >
               Book a Free Strategy Call
