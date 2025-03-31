@@ -24,27 +24,24 @@ const ServiceCard = ({ title, description, icon, link, index }: ServiceCardProps
           observer.disconnect();
         }
       },
-      { threshold: 0.2 }
+      {
+        threshold: 0.15,
+        rootMargin: '50px'
+      }
     );
 
     if (cardRef.current) {
       observer.observe(cardRef.current);
     }
 
-    return () => {
-      if (cardRef.current) {
-        observer.disconnect();
-      }
-    };
+    return () => observer.disconnect();
   }, []);
 
   return (
     <div
       ref={cardRef}
-      className={`tech-card opacity-0 ${
-        isVisible ? 'animate-slide-up opacity-100' : ''
-      }`}
-      style={{ animationDelay: `${0.1 + index * 0.1}s` }}
+      className={`tech-card reveal-on-scroll ${isVisible ? 'is-visible' : ''}`}
+      style={{ transitionDelay: `${index * 0.1}s` }}
     >
       <div className="w-16 h-16 bg-secondary/10 rounded-xl flex items-center justify-center mb-6 text-secondary">
         {icon}

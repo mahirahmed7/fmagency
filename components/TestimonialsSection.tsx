@@ -66,18 +66,17 @@ const TestimonialsSection = () => {
           setIsVisible(false);
         }
       },
-      { threshold: 0.2 }
+      { 
+        threshold: 0.15,
+        rootMargin: '50px'
+      }
     );
 
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
 
-    return () => {
-      if (sectionRef.current) {
-        observer.disconnect();
-      }
-    };
+    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
@@ -107,15 +106,15 @@ const TestimonialsSection = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center mb-12">
-          <h2 className={`text-3xl md:text-4xl font-bold mb-6 text-white ${isVisible ? 'animate-slide-up' : 'opacity-0'}`}>
+          <h2 className={`text-3xl md:text-4xl font-bold mb-6 text-white reveal-on-scroll ${isVisible ? 'is-visible' : ''}`}>
             What Our <span className="glow-text-cyan">Clients</span> Say
           </h2>
-          <p className={`text-lg text-text-light ${isVisible ? 'animate-slide-up' : 'opacity-0'}`} style={{ animationDelay: '0.1s' }}>
+          <p className={`text-lg text-text-light reveal-on-scroll ${isVisible ? 'is-visible' : ''}`} style={{ transitionDelay: '0.1s' }}>
             We're proud to have helped businesses across Sydney and beyond achieve remarkable results.
           </p>
         </div>
 
-        <div className={`relative max-w-4xl mx-auto ${isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{ animationDelay: '0.3s' }}>
+        <div className={`relative max-w-4xl mx-auto reveal-on-scroll ${isVisible ? 'is-visible' : ''}`} style={{ transitionDelay: '0.3s' }}>
           {/* Testimonial Slider */}
           <div className="overflow-hidden relative">
             <div 
@@ -151,35 +150,13 @@ const TestimonialsSection = () => {
           </div>
 
           {/* Navigation Buttons */}
-          <button 
-            onClick={prevTestimonial}
-            className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/2 md:-translate-x-6 w-10 h-10 rounded-full bg-primary/80 backdrop-blur-sm shadow-[0_0_10px_rgba(0,0,0,0.3)] border border-secondary/20 flex items-center justify-center z-10 transition-all hover:scale-110 hover:border-secondary/50 focus:outline-none"
-            aria-label="Previous testimonial"
-          >
-            <svg className="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-          <button 
-            onClick={nextTestimonial}
-            className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/2 md:translate-x-6 w-10 h-10 rounded-full bg-primary/80 backdrop-blur-sm shadow-[0_0_10px_rgba(0,0,0,0.3)] border border-secondary/20 flex items-center justify-center z-10 transition-all hover:scale-110 hover:border-secondary/50 focus:outline-none"
-            aria-label="Next testimonial"
-          >
-            <svg className="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-
-          {/* Dots Navigation */}
-          <div className="flex justify-center mt-8 space-x-2">
+          <div className={`flex justify-center mt-8 gap-2 reveal-on-scroll ${isVisible ? 'is-visible' : ''}`} style={{ transitionDelay: '0.4s' }}>
             {testimonials.map((_, index) => (
               <button
                 key={index}
                 onClick={() => goToTestimonial(index)}
-                className={`w-3 h-3 rounded-full transition-all ${
-                  index === activeIndex 
-                    ? 'bg-secondary w-6 shadow-[0_0_10px_rgba(6,182,212,0.5)]' 
-                    : 'bg-secondary/20'
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  index === activeIndex ? 'bg-secondary' : 'bg-secondary/30'
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />
