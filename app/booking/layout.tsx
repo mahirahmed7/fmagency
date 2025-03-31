@@ -1,4 +1,11 @@
-import { Metadata } from 'next';
+import { Metadata, Viewport } from 'next';
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  themeColor: '#000000'
+};
 
 export const metadata: Metadata = {
   title: 'Book a Call | FM Agency',
