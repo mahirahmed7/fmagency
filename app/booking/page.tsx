@@ -1,17 +1,22 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Script from 'next/script';
 import { FaCalendarAlt, FaClock, FaVideo } from 'react-icons/fa';
 
 const CALENDLY_URL = 'https://calendly.com/admin-fm-agency/30min';
 
 export default function BookingPage() {
+  const [isCalendlyReady, setIsCalendlyReady] = useState(false);
+
   useEffect(() => {
-    // Cleanup any existing Calendly scripts on mount
-    const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
-    if (existingScript) {
-      document.body.removeChild(existingScript);
+    // Only run on client side
+    if (typeof window !== 'undefined') {
+      // Cleanup any existing Calendly scripts on mount
+      const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
+      if (existingScript) {
+        document.body.removeChild(existingScript);
+      }
     }
   }, []);
 
@@ -54,15 +59,17 @@ export default function BookingPage() {
           </div>
 
           <div className="tech-card p-4 md:p-8">
-            <div 
-              className="calendly-inline-widget" 
-              data-url={CALENDLY_URL}
-              style={{
-                position: 'relative',
-                minWidth: '320px',
-                height: '700px',
-              }}
-            />
+            {typeof window !== 'undefined' && (
+              <div 
+                className="calendly-inline-widget" 
+                data-url={CALENDLY_URL}
+                style={{
+                  position: 'relative',
+                  minWidth: '320px',
+                  height: '700px',
+                }}
+              />
+            )}
           </div>
         </div>
       </div>
@@ -70,21 +77,24 @@ export default function BookingPage() {
       <Script 
         src="https://assets.calendly.com/assets/external/widget.js" 
         strategy="afterInteractive"
+        onLoad={() => setIsCalendlyReady(true)}
       />
 
-      <Script id="calendly-analytics" strategy="afterInteractive">
-        {`
-          window.addEventListener('calendly:event-scheduled', function(e) {
-            console.log('Calendly event scheduled:', e.detail);
-          });
-          window.addEventListener('calendly:date-and-time-selected', function(e) {
-            console.log('Calendly date and time selected:', e.detail);
-          });
-          window.addEventListener('calendly:profile-page-viewed', function(e) {
-            console.log('Calendly profile page viewed:', e.detail);
-          });
-        `}
-      </Script>
+      {isCalendlyReady && (
+        <Script id="calendly-analytics" strategy="afterInteractive">
+          {`
+            window.addEventListener('calendly:event-scheduled', function(e) {
+              console.log('Calendly event scheduled:', e.detail);
+            });
+            window.addEventListener('calendly:date-and-time-selected', function(e) {
+              console.log('Calendly date and time selected:', e.detail);
+            });
+            window.addEventListener('calendly:profile-page-viewed', function(e) {
+              console.log('Calendly profile page viewed:', e.detail);
+            });
+          `}
+        </Script>
+      )}
     </div>
   );
 } 
