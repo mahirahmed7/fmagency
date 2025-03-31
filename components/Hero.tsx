@@ -119,13 +119,13 @@ const Hero = () => {
           <div className={`mt-16 reveal-on-scroll ${isVisible ? 'is-visible' : ''}`} style={{ transitionDelay: '0.7s' }}>
             <div className="w-auto mx-auto">
               <Image
-                src="/images/logos/logonew.png"
-                alt="FM Agency"
-                width={240}
-                height={80}
+                src="/images/logos/WordArtW.png"
+                alt="FM Agency Values"
+                width={600}
+                height={600}
                 className="mx-auto animate-pulse-slow"
                 priority
-                quality={90}
+                quality={100}
               />
             </div>
           </div>
