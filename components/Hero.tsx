@@ -8,12 +8,12 @@ const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0.5, y: 0.5 });
   const heroRef = useRef<HTMLDivElement>(null);
-  const mouseMoveThrottleRef = useRef<ReturnType<typeof setTimeout>>();
+  const mouseMoveThrottleRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries: IntersectionObserverEntry[]) => {
-        if (entries[0].isIntersecting) {
+        if (entries && entries.length > 0 && entries[0].isIntersecting) {
           setIsVisible(true);
           observer.disconnect();
         }
@@ -39,7 +39,7 @@ const Hero = () => {
         const y = (clientY - top) / height;
         
         setMousePosition({ x, y });
-        mouseMoveThrottleRef.current = undefined;
+        mouseMoveThrottleRef.current = null;
       }, 50); // Throttle to 50ms
     };
 
@@ -50,6 +50,7 @@ const Hero = () => {
       document.removeEventListener('mousemove', handleMouseMove);
       if (mouseMoveThrottleRef.current) {
         clearTimeout(mouseMoveThrottleRef.current);
+        mouseMoveThrottleRef.current = null;
       }
     };
   }, []);
