@@ -54,7 +54,7 @@ const Navbar = () => {
     <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
       isScrolled ? 'bg-primary/80 backdrop-blur-md shadow-[0_5px_15px_rgba(0,0,0,0.3)] py-3' : 'bg-transparent py-5'
     }`}>
-      <div className="container mx-auto">
+      <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
@@ -69,7 +69,7 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center justify-center flex-1 space-x-8 px-4">
+          <div className="hidden md:flex items-center justify-center flex-1 space-x-8">
             <Link href="/" className="text-white hover:text-secondary transition-all duration-300">
               Home
             </Link>

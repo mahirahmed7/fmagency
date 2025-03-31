@@ -10,9 +10,11 @@ export default function ClientLayout({
 }: {
   children: React.ReactNode
 }) {
+  const [mounted, setMounted] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    setMounted(true);
     // Simulate loading time and resources
     const timer = setTimeout(() => {
       setIsLoading(false);
@@ -21,9 +23,14 @@ export default function ClientLayout({
     return () => clearTimeout(timer);
   }, []);
 
+  // Prevent hydration mismatch by not rendering until mounted
+  if (!mounted) {
+    return <LoadingScreen />;
+  }
+
   return (
     <>
-      <LoadingScreen />
+      {isLoading && <LoadingScreen />}
       <div className={`transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
         <Navbar />
         <main>
