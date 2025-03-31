@@ -23,9 +23,10 @@ const Footer = () => {
               <Image 
                 src="/images/logos/logohw.png" 
                 alt="FM Agency" 
-                width={150} 
-                height={50}
-                className="transition-opacity duration-300 hover:opacity-80"
+                width={200} 
+                height={67}
+                className="transition-opacity duration-300 hover:opacity-80 object-contain"
+                priority
               />
             </div>
             <p className="text-text-light mb-4">
