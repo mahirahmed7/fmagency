@@ -106,9 +106,11 @@ const Hero = () => {
           </p>
           
           <div className={`flex flex-col sm:flex-row justify-center gap-4 mt-12 reveal-on-scroll ${isVisible ? 'is-visible' : ''}`} style={{ transitionDelay: '0.5s' }}>
-            <Link href="/contact" className="btn btn-primary text-center sm:text-left">
-              Start Your Project
-            </Link>
+            <div className="btn-wrapper">
+              <Link href="/contact" className="btn btn-primary text-center sm:text-left">
+                Start Your Project
+              </Link>
+            </div>
             <Link href="/portfolio" className="btn btn-secondary text-center sm:text-left">
               View Our Work
             </Link>

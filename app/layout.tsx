@@ -18,7 +18,7 @@ export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 1,
-  themeColor: '#111827'
+  themeColor: '#000000'
 };
 
 export const metadata: Metadata = {
@@ -28,9 +28,16 @@ export const metadata: Metadata = {
   authors: [{ name: 'FM Agency' }],
   manifest: '/site.webmanifest',
   icons: {
-    icon: '/favicon.ico',
-    apple: '/apple-touch-icon.png',
-    shortcut: '/favicon-32x32.png'
+    icon: [
+      { url: '/favicon.ico', sizes: '16x16' },
+      { url: '/favicon-32x32.png', sizes: '32x32' },
+      { url: '/android-chrome-192x192.png', sizes: '192x192' },
+      { url: '/android-chrome-512x512.png', sizes: '512x512' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180' }
+    ],
+    shortcut: ['/favicon-32x32.png']
   },
   robots: {
     index: true,
