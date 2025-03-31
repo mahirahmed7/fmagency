@@ -5,7 +5,8 @@ import Footer from '@/components/Footer';
 import LoadingScreen from '@/components/LoadingScreen';
 import { Suspense } from 'react';
 import ClientLayout from '../components/ClientLayout';
-import { Metadata } from 'next';
+import { Metadata, Viewport } from 'next';
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -13,13 +14,18 @@ const inter = Inter({
   preload: true
 });
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  themeColor: '#111827'
+};
+
 export const metadata: Metadata = {
   title: 'FM Agency | Creative Digital Agency Sydney',
   description: 'FM Agency is Sydney\'s premium creative and digital agency specializing in web design, digital marketing, branding, and creator services.',
   keywords: 'digital agency, web design, digital marketing, branding, Sydney, creative agency',
   authors: [{ name: 'FM Agency' }],
-  viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
-  themeColor: '#111827',
   manifest: '/site.webmanifest',
   icons: {
     icon: '/favicon.ico',
@@ -62,6 +68,7 @@ export default function RootLayout({
             {children}
           </ClientLayout>
         </Suspense>
+        <Analytics />
       </body>
     </html>
   );
