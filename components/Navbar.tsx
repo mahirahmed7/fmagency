@@ -23,6 +23,21 @@ const Navbar = () => {
     };
   }, []);
 
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const nav = document.querySelector('nav');
+      if (nav && !nav.contains(event.target as Node) && isOpen) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isOpen]);
+
   return (
     <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
       isScrolled ? 'bg-primary/80 backdrop-blur-md shadow-[0_5px_15px_rgba(0,0,0,0.3)] py-3' : 'bg-transparent py-5'
@@ -41,7 +56,7 @@ const Navbar = () => {
             />
           </Link>
 
-          {/* Desktop Navigation - hidden on mobile, shown on desktop using CSS media query */}
+          {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
             <Link href="/" className="text-white hover:text-secondary transition-all duration-300">
               Home
@@ -60,18 +75,18 @@ const Navbar = () => {
             </Link>
           </div>
 
-          {/* CTA Button - hidden on mobile, shown on desktop using CSS media query */}
+          {/* Desktop CTA Button */}
           <div className="hidden md:block">
             <Link href="/contact" className="btn btn-primary">
               Start Your Project
             </Link>
           </div>
 
-          {/* Mobile Menu Button - shown on mobile, hidden on desktop using CSS media query */}
+          {/* Mobile Menu Button */}
           <div className="block md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-white focus:outline-none"
+              className="text-white focus:outline-none p-2 rounded-lg hover:bg-secondary/10 transition-colors duration-200"
               aria-label="Toggle menu"
             >
               {!isOpen ? (
@@ -88,39 +103,53 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu - hidden on desktop using CSS media query */}
-      <div className={`block md:hidden transition-all duration-300 ease-in-out ${
-        isOpen ? 'max-h-screen opacity-100 py-4' : 'max-h-0 opacity-0 overflow-hidden'
-      } bg-primary-light border-t border-secondary/20`}>
+      {/* Mobile Menu */}
+      <div 
+        className={`block md:hidden transition-all duration-300 ease-in-out ${
+          isOpen ? 'max-h-screen opacity-100 py-4' : 'max-h-0 opacity-0 overflow-hidden'
+        } bg-primary-light border-t border-secondary/20`}
+      >
         <div className="container mx-auto flex flex-col space-y-4 px-4">
-          <Link href="/" 
-                className="text-white hover:text-secondary py-2 px-4 rounded-md"
-                onClick={() => setIsOpen(false)}>
+          <Link 
+            href="/" 
+            className="text-white hover:text-secondary py-3 px-4 rounded-lg hover:bg-secondary/10 transition-all duration-200"
+            onClick={() => setIsOpen(false)}
+          >
             Home
           </Link>
-          <Link href="/services" 
-                className="text-white hover:text-secondary py-2 px-4 rounded-md"
-                onClick={() => setIsOpen(false)}>
+          <Link 
+            href="/services" 
+            className="text-white hover:text-secondary py-3 px-4 rounded-lg hover:bg-secondary/10 transition-all duration-200"
+            onClick={() => setIsOpen(false)}
+          >
             Services
           </Link>
-          <Link href="/portfolio" 
-                className="text-white hover:text-secondary py-2 px-4 rounded-md"
-                onClick={() => setIsOpen(false)}>
+          <Link 
+            href="/portfolio" 
+            className="text-white hover:text-secondary py-3 px-4 rounded-lg hover:bg-secondary/10 transition-all duration-200"
+            onClick={() => setIsOpen(false)}
+          >
             Portfolio
           </Link>
-          <Link href="/about" 
-                className="text-white hover:text-secondary py-2 px-4 rounded-md"
-                onClick={() => setIsOpen(false)}>
+          <Link 
+            href="/about" 
+            className="text-white hover:text-secondary py-3 px-4 rounded-lg hover:bg-secondary/10 transition-all duration-200"
+            onClick={() => setIsOpen(false)}
+          >
             About
           </Link>
-          <Link href="/contact" 
-                className="text-white hover:text-secondary py-2 px-4 rounded-md"
-                onClick={() => setIsOpen(false)}>
+          <Link 
+            href="/contact" 
+            className="text-white hover:text-secondary py-3 px-4 rounded-lg hover:bg-secondary/10 transition-all duration-200"
+            onClick={() => setIsOpen(false)}
+          >
             Contact
           </Link>
-          <Link href="/contact" 
-                className="btn btn-primary w-full justify-center"
-                onClick={() => setIsOpen(false)}>
+          <Link 
+            href="/contact" 
+            className="btn btn-primary w-full justify-center mt-4"
+            onClick={() => setIsOpen(false)}
+          >
             Start Your Project
           </Link>
         </div>
