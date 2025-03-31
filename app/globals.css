@@ -87,17 +87,35 @@
   }
   
   .btn {
-    @apply inline-flex items-center justify-center px-6 py-3 font-medium rounded-lg transition-all duration-300 transform;
+    @apply inline-flex items-center justify-center px-6 py-3 font-medium rounded-lg transition-all duration-300 transform relative isolate;
     min-height: 44px; /* Minimum touch target size */
     touch-action: manipulation;
   }
   
   .btn-primary {
-    @apply bg-secondary text-white hover:bg-secondary/90 hover:scale-105 shadow-[0_0_15px_rgba(6,182,212,0.5)];
+    @apply bg-secondary text-white hover:bg-secondary/90 hover:scale-105;
+    position: relative;
+  }
+  
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: radial-gradient(circle at center, rgba(6, 182, 212, 0.5), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: inherit;
+    z-index: -1;
+  }
+
+  .btn-primary:hover::before {
+    opacity: 1;
   }
   
   .btn-secondary {
     @apply bg-transparent border border-secondary text-secondary hover:bg-secondary/10 hover:scale-105;
+    position: relative;
+    z-index: 1;
   }
 
   .btn-accent {
