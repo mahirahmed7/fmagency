@@ -60,15 +60,25 @@ export default function BookingPage() {
 
           <div className="tech-card p-4 md:p-8">
             {typeof window !== 'undefined' && (
-              <div 
-                className="calendly-inline-widget" 
-                data-url={CALENDLY_URL}
-                style={{
-                  position: 'relative',
-                  minWidth: '320px',
-                  height: '700px',
-                }}
-              />
+              <div className="relative" style={{ minHeight: '700px' }}>
+                {!isCalendlyReady && (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="flex flex-col items-center space-y-4">
+                      <div className="w-12 h-12 border-4 border-secondary border-t-transparent rounded-full animate-spin"></div>
+                      <p className="text-text-light">Loading calendar...</p>
+                    </div>
+                  </div>
+                )}
+                <div 
+                  className="calendly-inline-widget" 
+                  data-url={CALENDLY_URL}
+                  style={{
+                    position: 'relative',
+                    minWidth: '320px',
+                    height: '700px',
+                  }}
+                />
+              </div>
             )}
           </div>
         </div>

@@ -54,7 +54,7 @@ export default function PortfolioPage() {
       title: "UTS Bangladeshi Society",
       category: "Web Design & Development",
       description: "A vibrant website for the UTS Bangladeshi Society, showcasing their events, culture, and community activities.",
-      image: "/images/portfolio/utsbdsoc.svg",
+      image: "/images/portfolio/utsbdsoc.png",
       link: "https://utsbdsoc.com",
       tags: ["Web Design", "Custom WordPress", "Community", "Mobile Responsive"]
     },
@@ -62,7 +62,7 @@ export default function PortfolioPage() {
       title: "Cassowary Centerpoint",
       category: "Web Design & Development",
       description: "A modern website for a business center in Australia, featuring an elegant design and seamless user experience.",
-      image: "/images/portfolio/cassowary.svg",
+      image: "/images/portfolio/cassowary.png",
       link: "https://cassowarycentrepoint.com",
       tags: ["Web Design", "E-commerce", "Business", "SEO Optimized"]
     },
@@ -70,7 +70,7 @@ export default function PortfolioPage() {
       title: "Liam Saad Farabi",
       category: "Creator Services",
       description: "YouTube channel growth strategy and content optimization for tech creator Liam Saad Farabi, resulting in increased subscribers and engagement.",
-      image: "/images/portfolio/youtube.svg",
+      image: "/images/portfolio/youtube.png",
       link: "https://www.youtube.com/@liamsaadfarabi",
       tags: ["YouTube Growth", "Content Strategy", "Video Production", "Channel Optimization"]
     }
