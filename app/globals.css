@@ -14,7 +14,7 @@
   --foreground-rgb: 255, 255, 255;
   --background-start-rgb: 0, 0, 0;
   --background-end-rgb: 0, 0, 0;
-  --navbar-height: 5rem;
+  --navbar-height: 4rem;
 }
 
 @media (prefers-color-scheme: light) {
@@ -205,11 +205,11 @@ main {
   min-height: 70vh;
   width: 100%;
   overflow-x: hidden;
-  margin-top: var(--navbar-height, 5rem);
+  padding-top: calc(var(--navbar-height, 5rem) + 1rem);
 }
 
 footer {
-  margin-top: 0;
+  margin-top: auto;
   background-color: var(--primary-light);
   width: 100%;
   position: relative;
