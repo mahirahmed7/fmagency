@@ -34,7 +34,7 @@ html {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  width: 100%;
+  width: 100vw;
 }
 
 body {
@@ -47,10 +47,11 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  width: 100%;
+  width: 100vw;
   background-color: var(--primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  position: relative;
 }
 
 @layer base {
@@ -83,18 +84,15 @@ body {
 
 @layer components {
   .container {
-    @apply mx-auto px-4;
-    width: 100%;
-    max-width: 1280px;
-    padding-left: clamp(1rem, 5vw, 2rem);
-    padding-right: clamp(1rem, 5vw, 2rem);
+    @apply mx-auto;
+    width: min(100% - 2rem, 1280px);
+    margin-inline: auto;
     box-sizing: border-box;
   }
   
   .section {
     @apply py-16;
-    padding-top: clamp(3rem, 8vw, 5rem);
-    padding-bottom: clamp(3rem, 8vw, 5rem);
+    padding-block: clamp(3rem, 8vw, 5rem);
     width: 100%;
     box-sizing: border-box;
   }
@@ -189,11 +187,13 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 .page-wrapper {
   flex: 1;
+  overflow-x: hidden;
 }
 
 main {
@@ -203,6 +203,7 @@ main {
   background-color: var(--primary);
   min-height: 70vh;
   width: 100%;
+  overflow-x: hidden;
 }
 
 footer {
