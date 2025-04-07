@@ -75,7 +75,7 @@ export default function ServicesPage() {
       id: "web",
       title: "Web Design & Development",
       description: "We create stunning, responsive websites that not only look great but also convert visitors into customers. Our web solutions are built with the latest technologies and optimized for performance and SEO.",
-      image: "/images/services/web-design.svg",
+      image: "/images/services/web-design.jpeg",
       features: [
         "Custom website design and development",
         "E-commerce solutions with seamless checkout experiences",
