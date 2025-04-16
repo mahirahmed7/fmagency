@@ -97,29 +97,6 @@ body {
     width: 100%;
     box-sizing: border-box;
   }
-  
-  .btn-wrapper {
-    position: relative;
-    display: inline-block;
-    isolation: isolate;
-    border-radius: 9999px;
-  }
-
-  .btn-wrapper::before {
-    content: '';
-    position: absolute;
-    inset: -15px;
-    background: radial-gradient(circle at center, rgba(6, 182, 212, 0.3), transparent 70%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-    z-index: -1;
-    border-radius: 9999px;
-  }
-
-  .btn-wrapper:hover::before {
-    opacity: 1;
-  }
 
   .btn {
     @apply inline-flex items-center justify-center px-6 py-3 font-medium rounded-lg transition-all duration-300;
