@@ -162,7 +162,7 @@ export default function ServicesPage() {
           />
         ))}
 
-        <section className="py-20 relative overflow-hidden">
+        <section className="py-16 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-primary to-primary-light"></div>
           
           <div className="container relative z-10 text-center">
@@ -177,9 +177,6 @@ export default function ServicesPage() {
             </Link>
           </div>
         </section>
-        
-        {/* Connector to footer - ensures smooth transition */}
-        <div className="bg-primary h-8"></div>
       </main>
     </>
   );
