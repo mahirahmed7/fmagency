@@ -63,7 +63,7 @@ export default function PortfolioPage() {
       category: "Web Design & Development",
       description: "A modern website for a business center in Australia, featuring an elegant design and seamless user experience.",
       image: "/images/portfolio/cassowary.png",
-      link: "https://cassowarycentrepoint.com",
+      link: "https://cassowarycentrepoint.com.au",
       tags: ["Web Design", "E-commerce", "Business", "SEO Optimized"]
     },
     {
