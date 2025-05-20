@@ -89,7 +89,7 @@ export default function ServicesPage() {
       id: "digital",
       title: "Digital Marketing",
       description: "Drive traffic, generate leads, and increase conversions with our comprehensive digital marketing strategies. We'll help you reach your target audience through the right channels at the right time.",
-      image: "/images/services/digital-marketing.svg",
+      image: "/images/services/digital-marketing.png",
       features: [
         "Search Engine Optimization (SEO)",
         "Pay-Per-Click (PPC) advertising campaigns",
