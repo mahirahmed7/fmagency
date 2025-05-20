@@ -104,7 +104,7 @@ export default function ServicesPage() {
       id: "branding",
       title: "Branding & Strategy",
       description: "Build a powerful brand identity that resonates with your audience and sets you apart from competitors. We'll help you define your brand's voice, visual identity, and positioning in the market.",
-      image: "/images/services/branding.svg",
+      image: "/images/services/branding.JPG",
       features: [
         "Brand identity development",
         "Logo design and visual identity systems",
