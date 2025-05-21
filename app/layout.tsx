@@ -22,11 +22,30 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: 'FM Agency | Creative Digital Agency Sydney',
-  description: 'FM Agency is Sydney\'s premium creative and digital agency specializing in web design, digital marketing, branding, and creator services.',
+  title: 'FM Agency | Design. Strategy. Growth.',
+  description: 'Sydney-based creative and digital agency specializing in web design, digital marketing, branding, and creator services.',
   keywords: 'digital agency, web design, digital marketing, branding, Sydney, creative agency',
   authors: [{ name: 'FM Agency' }],
   manifest: '/site.webmanifest',
+  openGraph: {
+    type: 'website',
+    url: 'https://fm-agency.net',
+    title: 'FM Agency | Design. Strategy. Growth.',
+    description: 'Sydney-based creative and digital agency specializing in web design, digital marketing, branding, and creator services.',
+    images: [{
+      url: 'https://opengraph.b-cdn.net/production/images/058b34cc-cd57-4522-9406-bfd22ef987e0.png?token=VXNH_deoZFFFgD2z9dQ4lvC0Gbvhgr0nnBAiKt8n300&height=653&width=1200&expires=33283826372',
+      width: 1200,
+      height: 653,
+      alt: 'FM Agency'
+    }]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@fm-agency.net',
+    title: 'FM Agency | Design. Strategy. Growth.',
+    description: 'Sydney-based creative and digital agency specializing in web design, digital marketing, branding, and creator services.',
+    images: ['https://opengraph.b-cdn.net/production/images/058b34cc-cd57-4522-9406-bfd22ef987e0.png?token=VXNH_deoZFFFgD2z9dQ4lvC0Gbvhgr0nnBAiKt8n300&height=653&width=1200&expires=33283826372']
+  },
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: '16x16' },
