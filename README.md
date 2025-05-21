@@ -110,8 +110,8 @@ This project is part of both my academic portfolio at UNSW and FM Agency's busin
 ## Contact
 
 For any queries regarding this project:
-- 🎓 Academic: mahirahmed072006@gmail.com
-- 💼 Business: admin@fm-agency.net
+- 🎓 Academic: [Contact via LinkedIn](https://linkedin.com/in/mahir-ahmedd)
+- 💼 Business: hello@fm-agency.net
 
 ---
 Built with ❤️ by Mahir Ahmed | UNSW Computer Science Student & Co-Founder of FM Agency

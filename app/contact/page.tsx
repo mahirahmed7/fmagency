@@ -50,15 +50,17 @@ export default function ContactPage() {
   });
   
   useEffect(() => {
-    // Load EmailJS configuration (better for production security)
+    // Load EmailJS configuration from environment variables
     setEmailConfig({
-      serviceId: 'service_zr9xlqf',
-      templateId: 'template_3dmxndk',
-      publicKey: 'Ry0JAhhvgu81DW_Tr'
+      serviceId: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '',
+      templateId: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || '',
+      publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || ''
     });
     
-    // Initialize EmailJS if needed
-    emailjs.init(emailConfig.publicKey);
+    // Initialize EmailJS
+    if (process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY) {
+      emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY);
+    }
   }, []);
   
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
