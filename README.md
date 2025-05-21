@@ -1,61 +1,117 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FM Agency Website
 
-## Getting Started
+A modern, high-performance website built for FM Agency, a Sydney-based creative and digital agency. This project showcases both professional web development capabilities and academic software engineering principles.
 
-First, run the development server:
+## About
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+This website serves as the digital presence for FM Agency while also demonstrating modern web development practices and software engineering concepts learned during my Computer Science studies at UNSW.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Key Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- 🚀 Built with Next.js 13+ (App Router)
+- 🎨 Modern UI/UX with Tailwind CSS
+- ⚡ Optimized performance with 90+ Lighthouse score
+- 📱 Fully responsive design
+- 🔒 SEO optimized with Next.js metadata
+- 📧 Integrated contact form with EmailJS
+- 📅 Calendly integration for booking
+- 🔄 Smooth animations and transitions
+- 🌐 Social media meta tags
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Technologies Used
 
-## Learn More
+- **Framework**: Next.js 13+ (React)
+- **Styling**: Tailwind CSS
+- **Animations**: CSS Animations & Transitions
+- **Form Handling**: EmailJS
+- **Analytics**: Vercel Analytics
+- **Deployment**: Hostinger
 
-To learn more about Next.js, take a look at the following resources:
+## Development
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This project was developed as part of my Computer Science journey at UNSW, incorporating software engineering best practices and modern web development techniques.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Getting Started
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-
-## Setting Up EmailJS for the Contact Form
-
-The contact form on this site uses EmailJS to handle form submissions. To set it up:
-
-1. Create an account at [EmailJS](https://www.emailjs.com/)
-2. Create a service (e.g., Gmail, Outlook, etc.) in your EmailJS dashboard
-3. Create an email template with the following template parameters:
-   - `from_name` - The name of the person submitting the form
-   - `from_email` - The email of the person submitting the form
-   - `to_name` - Set to "FM Agency" (or your organization name)
-   - `to_email` - Set to your receiving email address
-   - `subject` - The subject of the message
-   - `message` - The message content
-
-4. In the `app/contact/page.tsx` file, replace the placeholder values with your actual EmailJS credentials:
-   ```javascript
-   const serviceId = 'service_xxxxxx'; // Replace with your service ID
-   const templateId = 'template_xxxxxx'; // Replace with your template ID
-   const publicKey = 'xxxxxxxxxxxxx'; // Replace with your public key
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/fmagency_site.git
+   cd fmagency_site
    ```
 
-5. Test the form to ensure emails are being delivered properly
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-For more information, refer to the [EmailJS documentation](https://www.emailjs.com/docs/).
+3. Create a `.env.local` file with necessary environment variables:
+   ```env
+   NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_service_id
+   NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_template_id
+   NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
+   ```
+
+4. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+Open [http://localhost:3000](http://localhost:3000) to view the site.
+
+### Project Structure
+
+```
+fmagency_site/
+├── app/                # Next.js 13 app directory
+├── components/         # Reusable React components
+├── public/            # Static assets
+└── styles/           # Global styles and Tailwind config
+```
+
+## EmailJS Integration
+
+The contact form uses EmailJS for handling submissions. To set up:
+
+1. Create an account at [EmailJS](https://www.emailjs.com/)
+2. Create an email service in your dashboard
+3. Set up a template with these parameters:
+   - `from_name`: Sender's name
+   - `from_email`: Sender's email
+   - `subject`: Message subject
+   - `message`: Message content
+
+## Academic Context
+
+This project is part of my Computer Science portfolio at UNSW, demonstrating:
+
+- Modern web development practices
+- Software architecture principles
+- UI/UX design implementation
+- Performance optimization
+- SEO best practices
+- API integration
+- Responsive design techniques
+
+## Business Implementation
+
+This website serves as the digital storefront for FM Agency, featuring:
+
+- Professional service offerings
+- Portfolio showcase
+- Client booking system
+- Contact form
+- About section
+- Service details
+
+## License
+
+This project is part of both my academic portfolio at UNSW and FM Agency's business operations. All rights reserved.
+
+## Contact
+
+For any queries regarding this project:
+- 🎓 Academic: mahirahmed072006@gmail.com
+- 💼 Business: admin@fm-agency.net
+
+---
+Built with ❤️ by Mahir Ahmed | UNSW Computer Science Student & Co-Founder of FM Agency
