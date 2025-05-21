@@ -8,6 +8,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
+  // Handle scroll detection
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 10) {
@@ -23,6 +24,31 @@ const Navbar = () => {
     };
   }, []);
 
+  // Handle body scroll lock
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add('menu-open');
+    } else {
+      document.body.classList.remove('menu-open');
+    }
+
+    return () => {
+      document.body.classList.remove('menu-open');
+    };
+  }, [isOpen]);
+
+  // Close menu on route change
+  useEffect(() => {
+    const handleRouteChange = () => {
+      setIsOpen(false);
+    };
+
+    window.addEventListener('popstate', handleRouteChange);
+    return () => {
+      window.removeEventListener('popstate', handleRouteChange);
+    };
+  }, []);
+
   // Close mobile menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -32,21 +58,12 @@ const Navbar = () => {
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [isOpen]);
-
-  // Add useEffect to handle body scroll
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    return () => {
-      document.body.style.overflow = 'unset';
     };
   }, [isOpen]);
 
@@ -116,7 +133,9 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Navigation */}
-      <div className={`lg:hidden fixed inset-0 w-full ${isOpen ? 'z-50 opacity-100' : 'z-0 opacity-0 pointer-events-none'} transition-all duration-500`}>
+      <div className={`fixed inset-0 w-full h-full ${isOpen ? 'z-[60] visible' : 'invisible'} transition-all duration-500`} 
+        style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}
+      >
         {/* Overlay with grid background */}
         <div 
           className={`fixed inset-0 bg-[#0A0A0A]/95 backdrop-blur-md transition-all duration-500 ${
@@ -250,15 +269,12 @@ const Navbar = () => {
         @keyframes gradientMove {
           0% {
             background-position: 0% 50%;
-            opacity: 0.3;
           }
           50% {
             background-position: 100% 50%;
-            opacity: 0.4;
           }
           100% {
             background-position: 0% 50%;
-            opacity: 0.3;
           }
         }
 
@@ -282,6 +298,12 @@ const Navbar = () => {
             opacity: 1;
             transform: translateY(0);
           }
+        }
+
+        body.menu-open {
+          overflow: hidden;
+          position: fixed;
+          width: 100%;
         }
       `}</style>
     </nav>
