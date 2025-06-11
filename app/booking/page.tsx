@@ -45,7 +45,7 @@ export default function BookingPage() {
               <div className="w-12 h-12 mx-auto bg-secondary/10 rounded-xl flex items-center justify-center mb-4">
                 <FaClock className="w-6 h-6 text-secondary" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">30-Minute Session</h3>
+              <h3 className="text-xl font-semibold mb-2">15-Minute Session</h3>
               <p className="text-text-light">Focused discussion about your project needs</p>
             </div>
 
